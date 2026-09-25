@@ -36,7 +36,7 @@ func StdOut(ctx context.Context) io.Writer {
 	if stdout, ok := ctx.Value(stdOutKey).(io.Writer); ok {
 		return stdout
 	}
-	return os.Stdin
+	return os.Stdout
 }
 
 // StdErr gets the stored stdin stream from the context
@@ -44,5 +44,5 @@ func StdErr(ctx context.Context) io.Writer {
 	if stderr, ok := ctx.Value(stdErrKey).(io.Writer); ok {
 		return stderr
 	}
-	return os.Stdin
+	return os.Stderr
 }
